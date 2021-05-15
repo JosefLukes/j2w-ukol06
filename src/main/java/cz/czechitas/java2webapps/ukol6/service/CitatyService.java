@@ -26,6 +26,16 @@ public class CitatyService {
 
         return serviceRep.citat(serviceNah.dejNahodneCislo(serviceRep.pocet()));
 
+    }    public String nahodnyCitatCZ() {
+
+
+        return serviceRep.citatCZ(serviceNah.dejNahodneCislo(serviceRep.pocetCZ()));
+
+    }    public String nahodnyCitatEN() {
+
+
+        return serviceRep.citatEN(serviceNah.dejNahodneCislo(serviceRep.pocetEN()));
+
     }
 
     public String konkretniCitat(int cislo) {
