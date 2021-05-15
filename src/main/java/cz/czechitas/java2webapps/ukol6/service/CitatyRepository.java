@@ -7,11 +7,15 @@ import java.util.List;
 
 @Service
 public class CitatyRepository {
+    public final List<String> seznamCitatu;
+
+    public CitatyRepository(List<String> seznamCitatu) {
+        this.seznamCitatu = seznamCitatu;
+    }
 
 
-
-
-    List<String> seznamCitatu =   List.of(
+    public CitatyRepository() {
+        this.seznamCitatu = List.of(
                 "Debugging /de·bugh·ing/ (verb): The Classic Mystery Game where you are the detective, the victim, and the murderer.",
                 "A user interface is like a joke. If you have to explain it, it's not that good.",
                 "To replace programmers with robots, clients will have to accurately describe what they want. We're safe.",
@@ -20,6 +24,9 @@ public class CitatyRepository {
                 "When I wrote this code, only God & I understood what it did. Now… Only God knows.",
                 "Programmer (noun.): A machine that turns coffee into code.",
                 "Real programmers count from 0.");
+    }
+
+
 
 
 
