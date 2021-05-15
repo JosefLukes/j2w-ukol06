@@ -5,6 +5,7 @@ import cz.czechitas.java2webapps.ukol6.service.NahodneCisloService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.validation.constraints.AssertFalse;
@@ -26,9 +27,17 @@ public class CitatyController {
 
   @GetMapping("/")
   public ModelAndView nahodnyCitat() {
-    //int index = random.nextInt(seznamCitatu.size());
+
     ModelAndView modelAndView = new ModelAndView("citat");
     modelAndView.addObject("citat", service.nahodnyCitat());
+    return modelAndView;
+  }
+
+  @GetMapping("/{poradi}")
+  public ModelAndView kokretniCitat(@PathVariable int poradi) {
+
+    ModelAndView modelAndView = new ModelAndView("citat");
+    modelAndView.addObject("citat", service.konkretniCitat(poradi));
     return modelAndView;
   }
 }

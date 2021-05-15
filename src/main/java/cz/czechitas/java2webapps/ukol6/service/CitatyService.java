@@ -27,4 +27,15 @@ public class CitatyService {
         return serviceRep.citat(serviceNah.dejNahodneCislo(serviceRep.pocet()));
 
     }
+
+    public String konkretniCitat(int cislo) {
+        if (serviceRep.pocet()<cislo) {
+            return nahodnyCitat();
+        }
+        else {
+            return serviceRep.citat(cislo);
+        }
+    }
+
+
 }
