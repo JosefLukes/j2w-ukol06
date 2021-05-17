@@ -10,18 +10,10 @@ public class NahodneCisloService {
 
     private final Random random;
 
-    @Autowired
     public NahodneCisloService() {
         this.random = new Random();
     }
-
-
-
-
-    public int dejNahodneCislo(int horniMez) {
-
-
-        return random.nextInt(horniMez);
-
+        public int dejNahodneCislo(int horniMez) {
+            return random.nextInt(horniMez);
     }
 }

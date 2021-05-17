@@ -12,8 +12,6 @@ public class CitatyRepository {
     public final List<String> seznamCitatuEN;
     public final List<String> seznamCitatuCZ;
 
-
-
     public CitatyRepository() {
         this.seznamCitatuEN = List.of(
                 "Debugging /de·bugh·ing/ (verb): The Classic Mystery Game where you are the detective, the victim, and the murderer.",
@@ -43,11 +41,6 @@ public class CitatyRepository {
         this.seznamCitatu.addAll(seznamCitatuEN);
     }
 
-
-
-
-
-
     public int pocet() {
 
         return seznamCitatu.size();
@@ -55,10 +48,8 @@ public class CitatyRepository {
 
     public String citat(int poradi) {
 
-
         return seznamCitatu.get(poradi);
     }
-
 
     public int pocetCZ() {
 
@@ -67,23 +58,17 @@ public class CitatyRepository {
 
     public String citatCZ(int poradi) {
 
-
         return seznamCitatuCZ.get(poradi);
     }
-        public int pocetEN() {
+
+    public int pocetEN() {
 
         return seznamCitatuEN.size();
     }
 
     public String citatEN(int poradi) {
 
-
         return seznamCitatuEN.get(poradi);
     }
-
-
-
-
-
 
 }

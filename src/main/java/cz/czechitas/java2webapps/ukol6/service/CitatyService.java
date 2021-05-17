@@ -5,45 +5,36 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class CitatyService {
-
-    private final CitatyRepository serviceRep;
-
-    private final NahodneCisloService serviceNah;
-
-
+    private final CitatyRepository citatyRepositoryservice;
+    private final NahodneCisloService nahodneCisloService;
 
     @Autowired
-    public CitatyService(CitatyRepository serviceRep, NahodneCisloService serviceNah) {
-        this.serviceRep = serviceRep;
-        this.serviceNah = serviceNah;
+    public CitatyService(CitatyRepository citatyRepositoryservice, NahodneCisloService nahodneCisloService) {
+        this.citatyRepositoryservice = citatyRepositoryservice;
+        this.nahodneCisloService = nahodneCisloService;
     }
-
-
 
 
     public String nahodnyCitat() {
+        int nahodneCislo = nahodneCisloService.dejNahodneCislo(citatyRepositoryservice.pocet());
+        return citatyRepositoryservice.citat(nahodneCislo);
+    }
 
+    public String nahodnyCitatCZ() {
+        int nahodneCislo = nahodneCisloService.dejNahodneCislo(citatyRepositoryservice.pocet());
+        return citatyRepositoryservice.citatCZ(nahodneCislo);
+    }
 
-        return serviceRep.citat(serviceNah.dejNahodneCislo(serviceRep.pocet()));
-
-    }    public String nahodnyCitatCZ() {
-
-
-        return serviceRep.citatCZ(serviceNah.dejNahodneCislo(serviceRep.pocetCZ()));
-
-    }    public String nahodnyCitatEN() {
-
-
-        return serviceRep.citatEN(serviceNah.dejNahodneCislo(serviceRep.pocetEN()));
-
+    public String nahodnyCitatEN() {
+        int nahodneCislo = nahodneCisloService.dejNahodneCislo(citatyRepositoryservice.pocet());
+        return citatyRepositoryservice.citatEN(nahodneCislo);
     }
 
     public String konkretniCitat(int cislo) {
-        if (serviceRep.pocet()<cislo) {
+        if (citatyRepositoryservice.pocet() < cislo) {
             return nahodnyCitat();
-        }
-        else {
-            return serviceRep.citat(cislo);
+        } else {
+            return citatyRepositoryservice.citat(cislo);
         }
     }
 
